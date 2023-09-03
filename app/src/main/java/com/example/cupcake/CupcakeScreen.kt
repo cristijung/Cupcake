@@ -21,6 +21,14 @@ import androidx.navigation.compose.rememberNavController
 import com.example.cupcake.ui.OrderViewModel
 
 //Composable que exibe o topBar e o botão Voltar se a navegação de volta for possível.
+
+enum class CupcakeScreen() {
+    Start,
+    Flavor,
+    Pickup,
+    Summary
+}
+
 @Composable
 fun CupcakeAppBar(
     canNavigateBack: Boolean,
