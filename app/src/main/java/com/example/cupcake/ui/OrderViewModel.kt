@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-//Price for a single cupcake
+//Preço de um único cupcake
 private const val PRICE_PER_CUPCAKE = 2.00
 
 //Custo adicional para retirada de um pedido no mesmo dia
