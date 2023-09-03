@@ -26,27 +26,24 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-/** Price for a single cupcake */
+//Price for a single cupcake
 private const val PRICE_PER_CUPCAKE = 2.00
 
-/** Additional cost for same day pickup of an order */
+//Custo adicional para retirada de um pedido no mesmo dia
 private const val PRICE_FOR_SAME_DAY_PICKUP = 3.00
 
+
 /**
- * [OrderViewModel] holds information about a cupcake order in terms of quantity, flavor, and
- * pickup date. It also knows how to calculate the total price based on these order details.
+ * [OrderViewModel] contém informações sobre um pedido de cupcake em termos de quantidade, sabor e
+ *data de retirada. Ele também sabe como calcular o preço total com base nos detalhes do pedido.
  */
 class OrderViewModel : ViewModel() {
 
-    /**
-     * Cupcake state for this order
-     */
+    //Estado do cupcake para este pedido
     private val _uiState = MutableStateFlow(OrderUiState(pickupOptions = pickupOptions()))
     val uiState: StateFlow<OrderUiState> = _uiState.asStateFlow()
 
-    /**
-     * Set the quantity [numberCupcakes] of cupcakes for this order's state and update the price
-     */
+    //Defina a quantidade [numberCupcakes] de cupcakes para o estado deste pedido e atualize o preço
     fun setQuantity(numberCupcakes: Int) {
         _uiState.update { currentState ->
             currentState.copy(
@@ -57,8 +54,8 @@ class OrderViewModel : ViewModel() {
     }
 
     /**
-     * Set the [desiredFlavor] of cupcakes for this order's state.
-     * Only 1 flavor can be selected for the whole order.
+     * Defina o [desiredFlavor] dos cupcakes para o estado deste pedido.
+     * Apenas 1 sabor pode ser selecionado para todo o pedido.
      */
     fun setFlavor(desiredFlavor: String) {
         _uiState.update { currentState ->
@@ -66,9 +63,7 @@ class OrderViewModel : ViewModel() {
         }
     }
 
-    /**
-     * Set the [pickupDate] for this order's state and update the price
-     */
+    //Defina [pickupDate] para o estado deste pedido e atualize o preço
     fun setDate(pickupDate: String) {
         _uiState.update { currentState ->
             currentState.copy(
@@ -78,22 +73,18 @@ class OrderViewModel : ViewModel() {
         }
     }
 
-    /**
-     * Reset the order state
-     */
+    //Redefinir o estado do pedido
     fun resetOrder() {
         _uiState.value = OrderUiState(pickupOptions = pickupOptions())
     }
 
-    /**
-     * Returns the calculated price based on the order details.
-     */
+    //Retorna o preço calculado com base nos detalhes do pedido.
     private fun calculatePrice(
         quantity: Int = _uiState.value.quantity,
         pickupDate: String = _uiState.value.date
     ): String {
         var calculatedPrice = quantity * PRICE_PER_CUPCAKE
-        // If the user selected the first option (today) for pickup, add the surcharge
+        //Caso o usuário tenha selecionado a primeira opção (hoje) para retirada, adicione a sobretaxa
         if (pickupOptions()[0] == pickupDate) {
             calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
         }
@@ -101,14 +92,12 @@ class OrderViewModel : ViewModel() {
         return formattedPrice
     }
 
-    /**
-     * Returns a list of date options starting with the current date and the following 3 dates.
-     */
+    //Retorna uma lista de opções de data começando com a data atual e as 3 datas seguintes.
     private fun pickupOptions(): List<String> {
         val dateOptions = mutableListOf<String>()
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
-        // add current date and the following 3 dates.
+        // adicione a data atual e as 3 datas seguintes.
         repeat(4) {
             dateOptions.add(formatter.format(calendar.time))
             calendar.add(Calendar.DATE, 1)

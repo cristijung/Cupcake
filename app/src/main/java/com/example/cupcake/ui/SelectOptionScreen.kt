@@ -1,18 +1,4 @@
-/*
- * Copyright (C) 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 package com.example.cupcake.ui
 
 import androidx.compose.foundation.layout.Arrangement
@@ -41,10 +27,10 @@ import com.example.cupcake.R
 import com.example.cupcake.ui.components.FormattedPriceLabel
 
 /**
- * Composable that displays the list of items as [RadioButton] options,
- * [onSelectionChanged] lambda that notifies the parent composable when a new value is selected,
- * [onCancelButtonClicked] lambda that cancels the order when user clicks cancel and
- * [onNextButtonClicked] lambda that triggers the navigation to next screen
+ * Composable que exibe a lista de itens como opções [RadioButton],
+ * [onSelectionChanged] lambda que notifica o elemento pai que pode ser composto quando um novo valor é selecionado,
+ * [onCancelButtonClicked] lambda que cancela o pedido quando o usuário clica em cancelar e
+ * [onNextButtonClicked] lambda que aciona a navegação para a próxima tela
  */
 @Composable
 fun SelectOptionScreen(
@@ -108,7 +94,7 @@ fun SelectOptionScreen(
             }
             Button(
                 modifier = Modifier.weight(1f),
-                // the button is enabled when the user makes a selection
+                // o botão é habilitado quando o usuário faz uma seleção
                 enabled = selectedValue.isNotEmpty(),
                 onClick = {}
             ) {
