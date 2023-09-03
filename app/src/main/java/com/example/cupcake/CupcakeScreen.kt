@@ -1,6 +1,7 @@
 
 package com.example.cupcake
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.cupcake.ui.OrderViewModel
 
@@ -54,6 +56,8 @@ fun CupcakeAppBar(
     )
 }
 
+//parei aqui
+//na hora de colocar o método NavHost()
 @Composable
 fun CupcakeApp(
     viewModel: OrderViewModel = viewModel(),
@@ -69,6 +73,12 @@ fun CupcakeApp(
         }
     ) { innerPadding ->
         val uiState by viewModel.uiState.collectAsState()
+        NavHost(
+            navController = navController,
+            startDestination = CupcakeScreen.Start.name,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+        }
 
     }
 }
