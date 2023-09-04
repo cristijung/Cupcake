@@ -19,8 +19,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.cupcake.data.DataSource.quantityOptions
 import com.example.cupcake.ui.OrderViewModel
+import com.example.cupcake.ui.StartOrderScreen
 
 //Composable que exibe o topBar e o botão Voltar se a navegação de volta for possível.
 
@@ -60,6 +63,7 @@ fun CupcakeAppBar(
 //na hora de colocar o método NavHost()
 @Composable
 fun CupcakeApp(
+    //val navController = rememberNavController(),
     viewModel: OrderViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ) {
@@ -78,7 +82,12 @@ fun CupcakeApp(
             startDestination = CupcakeScreen.Start.name,
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable(route = CupcakeScreen.Start.name) {
+                StartOrderScreen(
+                    quantityOptions = quantityOptions
+                )
+            }
         }
-
     }
 }
+
