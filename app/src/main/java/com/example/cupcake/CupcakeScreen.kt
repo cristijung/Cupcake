@@ -1,6 +1,8 @@
 
 package com.example.cupcake
 
+import android.content.Context
+import android.content.Intent
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -156,4 +158,19 @@ private fun cancelOrderAndNavigateToStart(
     navController.popBackStack(CupcakeScreen.Start.name, inclusive = false)
 }
 
-
+//passo para criar navegação para outro app
+//usando intent e context
+private fun shareOrder(context: Context, subject: String, summary: String) {
+    // Crindo uma intent implícita ACTION_SEND com detalhes do pedido nos extras da intenção
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, subject)
+        putExtra(Intent.EXTRA_TEXT, summary)
+    }
+    context.startActivity(
+        Intent.createChooser(
+            intent,
+            context.getString(R.string.new_cupcake_order)
+        )
+    )
+}
