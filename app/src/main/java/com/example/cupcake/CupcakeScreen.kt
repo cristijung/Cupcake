@@ -141,4 +141,13 @@ fun CupcakeApp(
     }
 }
 
+//Redefine o [OrderUiState] e aparece em [CupcakeScreen.Start]
+private fun cancelOrderAndNavigateToStart(
+    viewModel: OrderViewModel,
+    navController: NavHostController
+) {
+    viewModel.resetOrder()
+    navController.popBackStack(CupcakeScreen.Start.name, inclusive = false)
+}
+
 
