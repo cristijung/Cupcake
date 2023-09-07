@@ -110,7 +110,9 @@ fun CupcakeApp(
                     subtotal = uiState.price,
                     onNextButtonClicked = {
                         navController.navigate(CupcakeScreen.Pickup.name) },
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = { //aqui
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
                     options = flavors.map { id -> context.resources.getString(id) },
                     onSelectionChanged = { viewModel.setFlavor(it) }
                 )
@@ -121,7 +123,9 @@ fun CupcakeApp(
                     subtotal = uiState.price,
                     onNextButtonClicked = {
                         navController.navigate(CupcakeScreen.Summary.name) },
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = { //aqui vamos deixar e depois testar ---
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
                     options = uiState.pickupOptions,
                     onSelectionChanged = { viewModel.setDate(it) }
                 )
@@ -131,7 +135,9 @@ fun CupcakeApp(
                 val context = LocalContext.current
                 OrderSummaryScreen(
                     orderUiState = uiState,
-                    onCancelButtonClicked = {},
+                    onCancelButtonClicked = { //aqui
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
                     onSendButtonClicked = { subject: String, summary: String ->
                     }
                 )
