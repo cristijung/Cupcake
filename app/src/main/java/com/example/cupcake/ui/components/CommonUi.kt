@@ -11,6 +11,7 @@ import com.example.cupcake.R
 // Composable que exibe [preço] formatado que será formatado e exibido na tela
 @Composable
 fun FormattedPriceLabel(subtotal: String, modifier: Modifier = Modifier) {
+    val priceWithSymbol = "R$ $subtotal"
     Text(
         text = stringResource(R.string.subtotal_price, subtotal),
         modifier = modifier,

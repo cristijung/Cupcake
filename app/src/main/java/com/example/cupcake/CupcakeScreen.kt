@@ -4,6 +4,7 @@ package com.example.cupcake
 import android.content.Context
 import android.content.Intent
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -137,18 +138,20 @@ fun CupcakeApp(
                 val context = LocalContext.current
                 OrderSummaryScreen(
                     orderUiState = uiState,
-                    onCancelButtonClicked = { //aqui
+                    onCancelButtonClicked = {
                         cancelOrderAndNavigateToStart(viewModel, navController)
                     },
                     onSendButtonClicked = { subject: String, summary: String ->
-                    }
+                        shareOrder(context, subject = subject, summary = summary)
+                    },
+                    modifier = Modifier.fillMaxHeight()
                 )
             }
             //final dos composable do NavHost
         }
     }
 }
-
+//parei aqui
 //Redefine o [OrderUiState] e aparece em [CupcakeScreen.Start]
 private fun cancelOrderAndNavigateToStart(
     viewModel: OrderViewModel,

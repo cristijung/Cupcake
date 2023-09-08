@@ -111,7 +111,7 @@ fun OrderSummaryScreen(
 @Composable
 fun OrderSummaryPreview(){
     OrderSummaryScreen(
-        orderUiState = OrderUiState(0, "Test", "Test", "$300.00"),
+        orderUiState = OrderUiState(0, "Test", "Test", "R$300.00"),
         onSendButtonClicked = { subject: String, summary: String -> },
         onCancelButtonClicked = {},
         modifier = Modifier.fillMaxHeight()

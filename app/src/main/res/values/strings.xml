@@ -20,7 +20,7 @@
     <string name="quantity">Quantidade</string>
     <string name="flavor">Sabor</string>
     <string name="pickup_date">Data de retirada</string>
-    <string name="subtotal_price">Subtotal %s</string>
+    <string name="subtotal_price">Subtotal R%s</string>
     <string name="total_price">Total %s</string>
     <string name="new_cupcake_order">Novo pedido de cupcake</string>
     <string name="order_details">Quantidade: %1$s \nSabor: %2$s \nData da retirada: %3$s \nTotal: %4$s \n\nMuito obrigada!</string>
