@@ -37,7 +37,6 @@ import com.example.cupcake.ui.SelectOptionScreen
 import com.example.cupcake.ui.StartOrderScreen
 
 //Composable que exibe o topBar e o botão Voltar se a navegação de volta for possível.
-
 //alteração do enum ----
 enum class CupcakeScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -45,7 +44,6 @@ enum class CupcakeScreen(@StringRes val title: Int) {
     Pickup(title = R.string.choose_pickup_date),
     Summary(title = R.string.order_summary)
 }
-
 
 @Composable
 fun CupcakeAppBar(
@@ -134,7 +132,7 @@ fun CupcakeApp(
                     subtotal = uiState.price,
                     onNextButtonClicked = {
                         navController.navigate(CupcakeScreen.Summary.name) },
-                    onCancelButtonClicked = { //aqui vamos deixar e depois testar ---
+                    onCancelButtonClicked = {
                         cancelOrderAndNavigateToStart(viewModel, navController)
                     },
                     options = uiState.pickupOptions,
