@@ -25,11 +25,11 @@ import com.example.cupcake.R
 import com.example.cupcake.data.OrderUiState
 import com.example.cupcake.ui.components.FormattedPriceLabel
 
-/**
- * Este elemento que pode ser composto espera [orderUiState] que representa o estado do pedido, [onCancelButtonClicked]
- * lambda que aciona o cancelamento do pedido e passa o pedido final para [onSendButtonClicked]
- * lambda
- */
+//Este elemento que pode ser composto espera [orderUiState] que representa o estado do pedido, [onCancelButtonClicked]
+//ambda que aciona o cancelamento do pedido e passa o pedido final para [onSendButtonClicked]
+//lambda
+
+
 @Composable
 fun OrderSummaryScreen(
     orderUiState: OrderUiState,
