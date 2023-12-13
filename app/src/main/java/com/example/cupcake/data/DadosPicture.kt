@@ -1,6 +1,6 @@
 package com.example.cupcake.data
 
-data class BaseDados(
+data class DadosPicture(
     // Quantidade de cupcake selecionada (1, 6, 12)
     val quantity: Int = 0,
     //Sabor dos cupcakes do pedido (como "Chocolate", "Baunilha", etc.)
